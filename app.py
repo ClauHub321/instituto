@@ -23,6 +23,36 @@ conn.execute(
     """
 )
 
+conn.execute(
+    """
+    CREATE TABLE IF NOT EXISTS inscripciones(
+        id INTEGER PRIMARY KEY,
+        fecha TEXT NOT NULL,
+        curso_id INTEGER NOT NULL,
+        estudiante_id INTEGER NOT NULL,
+        FOREIGN KEY (curso_id) REFERENCES cursos(id),
+        FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)
+    )
+    """
+)
+
+conn.execute(
+    """
+    INSERT INTO inscripciones (fecha,estudiante_id,curso_id)
+    VALUES 
+    ('2024-10-31',1,1)
+    """
+)
+conn.execute(
+    """
+    INSERT INTO inscripciones (fecha,estudiante_id,curso_id)
+    VALUES 
+    ('2024-10-31',1,2)
+    """
+)
+
+conn.commit()
+
 #conn.execute(
 #    """
 #    INSERT INTO cursos (descripcion,horas)
@@ -36,7 +66,8 @@ print("\nCURSOS")
 cursor = conn.execute("SELECT * FROM cursos")
 for row in cursor:
     print(row)
-    
+
+print("\nESTUDIANTES")    
 cursor = conn.execute("SELECT * FROM estudiantes")
 for fila in cursor:
     print (fila)
