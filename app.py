@@ -71,3 +71,8 @@ print("\nESTUDIANTES")
 cursor = conn.execute("SELECT * FROM estudiantes")
 for fila in cursor:
     print (fila)
+    
+print("\nINSCRIPCIONES")    
+cursor = conn.execute("SELECT * FROM inscripciones")
+for fila in cursor:
+    print (fila)
