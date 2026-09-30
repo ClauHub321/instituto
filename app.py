@@ -30,12 +30,13 @@ conn.execute(
 #    """
 #)
 
-conn.execute(
-    """
-    INSERT INTO estudiantes(nombre, apellidos, fecha_nacimiento)
-    VALUES
-    ('Bruno','Diaz','1980-12-20')
-    """
-)
+#conn.commit()
 
-conn.commit()
+print("\nCURSOS")
+cursor = conn.execute("SELECT * FROM cursos")
+for row in cursor:
+    print(row)
+    
+cursor = conn.execute("SELECT * FROM estudiantes")
+for fila in cursor:
+    print (fila)
