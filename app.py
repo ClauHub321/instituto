@@ -23,10 +23,18 @@ conn.execute(
     """
 )
 
+#conn.execute(
+#    """
+#    INSERT INTO cursos (descripcion,horas)
+#    VALUES ('Python de 0 a experto',40)
+#    """
+#)
+
 conn.execute(
     """
-    INSERT INTO cursos (descripcion,horas)
-    VALUES ('Python de 0 a experto',40)
+    INSERT INTO estudiantes(nombre, apellidos, fecha_nacimiento)
+    VALUES
+    ('Bruno','Diaz','1980-12-20')
     """
 )
 
